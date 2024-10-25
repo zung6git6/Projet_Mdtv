@@ -1,0 +1,31 @@
+Nous avons comme objectif de réaliser en python un générateur automatique de pré et post conditions
+pour un programme quelconque de la machine de Turing de M. del Vigna (MTddV).
+
+Chaque équipe devra choisir choisir UN des 2 modules proposés à réaliser individuellement
+ou par équipe de deux personnes, en association avec une autre équipe qui sera en charge
+du module complémentaire (si vous avez choisi le Module 1 à réaliser il faut trouver un équipe qui
+réalise le Module 2 afin de constituer un binôme d'équipes).
+Chaque équipe réalise son module individuellement mais les deux équipes d'un binôme
+doivent se mettre d'accord sur le format de la structure de données produite par le Module 1
+qui représente la syntaxe d'un programme MddTV afin qu'il soit compatible avec les
+traitements implémentés dans les 2 modules.
+
+Module 1
+
+Réaliser en Python un analyseur syntaxique en python, qui reconnaît la syntaxe des programmes MTddV.
+Pour cela vous pouvez par exemple utiliser les expressions régulières avec les modules re ou regex
+pour les tâches de bas niveau de segmentation du texte source.
+Le résultat de votre analyseur sera une représentation de la structure syntaxique du programme MTddV
+qui sera passée comme une structure de donnée au Module 2 de génération d'assertions.
+
+Module 2
+
+Réaliser en Python un générateur de pre- et post- assertions dans le formalisme de la logique de Hoare
+qui prend en entrée une structure syntaxique produite par une implémentation du Module 1
+Le formalisme pour encoder les pre- et post- assertions est laissé libre (prédicats Python, Prolog, Haskell,
+etc...). Avec ce générateur vous implémenterez un module de comparaison formelle de deux assertions permettant
+de déterminer à partir de leurs représentation si ces deux expressions sont égales ou non.
+
+Calendrier voir le diagramme de gantt
+
+
