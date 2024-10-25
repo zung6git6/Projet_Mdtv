@@ -1,0 +1,162 @@
+[
+    {
+        "type": "instruction",
+        "instruction": "I",
+        "suivant": "si(0)"
+    },
+    {
+        "type": "condition",
+        "instruction": "si(0)",
+        "suivant": "I",
+        "contenu": [
+            {
+                "type": "instruction",
+                "instruction": "I",
+                "suivant": "}"
+            },
+            {
+                "type": "fermeture",
+                "instruction": "}",
+                "suivant": "si(1)"
+            }
+        ]
+    },
+    {
+        "type": "condition",
+        "instruction": "si(1)",
+        "suivant": "D",
+        "contenu": [
+            {
+                "type": "instruction",
+                "instruction": "D",
+                "suivant": "I"
+            },
+            {
+                "type": "instruction",
+                "instruction": "I",
+                "suivant": "boucle"
+            },
+            {
+                "type": "boucle",
+                "instruction": "boucle",
+                "suivant": "si(0)",
+                "contenu": [
+                    {
+                        "type": "condition",
+                        "instruction": "si(0)",
+                        "suivant": "fin",
+                        "contenu": [
+                            {
+                                "type": "instruction",
+                                "instruction": "fin",
+                                "suivant": "}"
+                            },
+                            {
+                                "type": "fermeture",
+                                "instruction": "}",
+                                "suivant": "si(1)"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "condition",
+                        "instruction": "si(1)",
+                        "suivant": "0",
+                        "contenu": [
+                            {
+                                "type": "instruction",
+                                "instruction": "0",
+                                "suivant": "I"
+                            },
+                            {
+                                "type": "instruction",
+                                "instruction": "I",
+                                "suivant": "D"
+                            },
+                            {
+                                "type": "instruction",
+                                "instruction": "D",
+                                "suivant": "I"
+                            },
+                            {
+                                "type": "instruction",
+                                "instruction": "I",
+                                "suivant": "}"
+                            },
+                            {
+                                "type": "fermeture",
+                                "instruction": "}",
+                                "suivant": "}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "fermeture",
+                        "instruction": "}",
+                        "suivant": "}"
+                    }
+                ]
+            },
+            {
+                "type": "fermeture",
+                "instruction": "}",
+                "suivant": "boucle"
+            }
+        ]
+    },
+    {
+        "type": "boucle",
+        "instruction": "boucle",
+        "suivant": "si(0)",
+        "contenu": [
+            {
+                "type": "condition",
+                "instruction": "si(0)",
+                "suivant": "G",
+                "contenu": [
+                    {
+                        "type": "instruction",
+                        "instruction": "G",
+                        "suivant": "}"
+                    },
+                    {
+                        "type": "fermeture",
+                        "instruction": "}",
+                        "suivant": "si(1)"
+                    }
+                ]
+            },
+            {
+                "type": "condition",
+                "instruction": "si(1)",
+                "suivant": "fin",
+                "contenu": [
+                    {
+                        "type": "instruction",
+                        "instruction": "fin",
+                        "suivant": "}"
+                    },
+                    {
+                        "type": "fermeture",
+                        "instruction": "}",
+                        "suivant": "}"
+                    }
+                ]
+            },
+            {
+                "type": "fermeture",
+                "instruction": "}",
+                "suivant": "I"
+            }
+        ]
+    },
+    {
+        "type": "instruction",
+        "instruction": "I",
+        "suivant": "#"
+    },
+    {
+        "type": "instruction",
+        "instruction": "#"
+    }
+]
