@@ -194,7 +194,6 @@ def json_file(list_elements: list) -> None:
     """
     # Liste des symboles qui ne sont pas valides à l'état initial (q0)
     not_q0_symbols = ['fin', '}']
-    K = 0  # Compteur pour suivre l'ouverture et la fermeture des boucles/conditions
     structure_syntaxique = []  # Structure de données pour stocker les instructions
 
     # Si la liste est vide, la syntaxe est invalide
