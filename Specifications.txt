@@ -1,0 +1,56 @@
+Objectif :
+- Analyser syntaxiquement un programme écrit en MTddV.
+- Utiliser Python pour créer une structure de données représentant la syntaxe du programme donnée en entrée, afin que cette structure soit transférable au module 2.
+
+Fonctionnalités :
+1. Tokenisation du fichier source (tokenizer.py)
+    - Script contenant une fonction qui segmente le texte source en tokens reconnu par des expressions régulières. Les tokens correspondent aux symboles syntaxique spécifique du langage MTddV.
+    Fonctions :
+        - get_next_token(i: int, tokens: list[str]) -> str : Retourne le prochain token de la liste.
+            Paramètres :
+                - i : Position courante dans la liste des tokens.
+                - tokens : Liste de tokens dans la ligne actuelle.
+            Retour : Prochain token ou une chaîne vide si la liste est terminée.
+        - input_tokenizer(input_file: str) -> list[str] : Lit et tokenise le fichier source, identifiant les éléments syntaxique du langage.
+            Paramètres :
+	            - input_file : Chemin du fichier source.
+	        Retour : Liste des tokens.
+
+2. Analyseur syntaxique (analyseur.py)
+    - Script qui analyse la liste des tokens générés par le script tokenizer pour vérifier la syntaxe et structure le programme en JSON.
+    Fonctions :
+        - analyseur_syntaxique(list_elements: list) -> bool : Vérifie si les tokens respectent bien l'ordre syntaxique du langage MTddV.
+            Paramètres :
+	            - list_elements : Liste de tokens générés par input_tokenizer.
+	        Retour : True si la syntaxe est valide, False en cas d’erreur syntaxique. 
+        - json_file(list_elements: list, output_file: str) -> None : Transforme la liste syntaxique en une structure JSON hiérarchisée.
+            Paramètres :
+	            - list_elements : Liste des tokens vérifiés.
+                - output_file : Chemin du fichier de sortie.
+	        Retour : Enregistre un fichier JSON représentant la structure syntaxique.
+
+3. Script d'éxécution (analyseur_executable.sh)
+    - Script bash permettant d’exécuter le module en ligne de commande avec le chemin d’un fichier source MTddV en argument. Exécute l’analyse syntaxique et enregistre la sortie dans result.txt.
+
+
+Interface et format de sortie :
+1. Entrée :
+    - Un fichier texte contenant un programme MTddV.
+
+2. Sortie :
+    - structure_syntaxique.json : JSON contenant la structure syntaxique du programme avec des informations sur chaque bloc (instruction, condition, boucle).
+    - result.txt : Fichier contenant les messages de diagnostic produits lors de l’analyse syntaxique.
+
+Décomposition des Modules
+- Module d’Ouverture et de Lecture :
+	- Ce module ouvre le fichier source, le lit et le segmente en lignes.
+	- Utilisation des regex pour isoler les tokens.
+- Module d’Extraction et Analyse Syntaxique :
+	- Transforme le programme en une liste de tokens et applique des règles syntaxiques pour vérifier leur validité.
+	- Segmente en sous-blocs selon la logique des conditions, boucles et instructions. Utilise une pile pour gérer les sous-contextes.
+- Module de Génération du JSON :
+    - Construit et enregistre la structure de données en JSON, facilitant l’intégration avec le Module 2.
+
+Bibliothèques Utilisées :
+- re: Utilisée pour segmenter et reconnaître les tokens spécifiques en fonction des règles syntaxiques du langage MTddV.
+- json: Pour structurer et écrire la sortie syntaxique en format JSON, permettant une réutilisation structurée.

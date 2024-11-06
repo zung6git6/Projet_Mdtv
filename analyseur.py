@@ -182,7 +182,7 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
     return True
 
-def json_file(list_elements: list) -> None:
+def json_file(list_elements: list, output_file: str) -> None:
     """
     Transforme la structure syntaxique d'un programme en JSON.
 
@@ -260,7 +260,7 @@ def json_file(list_elements: list) -> None:
 
 
     # Enregistre la structure syntaxique au format JSON
-    with open("structure_syntaxique.json", "w", encoding="utf-8") as json_file:
+    with open(output_file, "w", encoding="utf-8") as json_file:
         json.dump(structure_syntaxique, json_file, ensure_ascii=False, indent=4)
 
 
@@ -272,7 +272,7 @@ def main():
     input_file = args.input_file_path
     list_elements = input_tokenizer(input_file)
     if analyseur_syntaxique(list_elements):
-        json_file(list_elements)
+        json_file(list_elements, "structure_syntaxique.json")
     return None
 
 # Main procedure
