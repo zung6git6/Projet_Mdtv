@@ -219,6 +219,8 @@ def json_file(list_elements: list, output_file: str) -> None:
     """
     Transforme la structure syntaxique d'un programme en JSON.
 
+    Explication : 
+
     Paramètres :
     - list_elements : Liste de symboles représentant un programme de machine de Turing.
 
