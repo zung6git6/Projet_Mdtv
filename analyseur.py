@@ -37,19 +37,31 @@ def analyseur_syntaxique(list_elements: list) -> bool:
             # Récupère le symbole suivant pour traiter les enchaînements
             next_symbol = get_next_token(i, list_elements)
 
+            # Ignorer les lignes de commentaires
+            if symbol.startswith("%"):
+                print(f"commentaire : {symbol.replace('%', '').strip()}")
+                continue  # Les commentaires n'ont pas d'impact sur la syntaxe
+
+            if next_symbol.startswith("%"):
+                print(f"Commentaire ignoré après {symbol}: {next_symbol}")
+                continue
+
             # Traite les symboles d'instruction d'affichage de la bande ('I') ; pause et affichage de la bande ('P')
             if symbol in ["I", "P"]:
                 print(f"symbol actuel : {symbol}")
                 if next_symbol in ["0", "1", "G", "D", "fin", "P", "#"]:
                     print(f"{symbol} rencontre {next_symbol}")
                 elif next_symbol.startswith("%"):
-                    pass
+                    print(f"Commentaire ignoré après {symbol}: {next_symbol}")
+                    continue
                 elif next_symbol in ["si(1)", "si(0)", "boucle"]:
                     print(f"{symbol} rencontre {next_symbol}")
                     K += 1
+                    print(f"DEBUG: K incremented to {K}")
                 elif next_symbol == "}":
                     print(f"{symbol} rencontre {next_symbol}")
                     K -= 1
+                    print(f"DEBUG: K decremented to {K}")
                 else:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
@@ -83,10 +95,11 @@ def analyseur_syntaxique(list_elements: list) -> bool:
                 if next_symbol in ["G", "D", "0", "1", "fin", "P", "I"]:
                     print(f"{symbol} rencontre {next_symbol}")
                 elif next_symbol.startswith("%"):
-                    pass
+                    continue
                 elif next_symbol == "boucle":
                     print(f"{symbol} rencontre {next_symbol}")
                     K += 1
+                    print(f"DEBUG: K incremented to {K}")
                 else:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
@@ -97,14 +110,17 @@ def analyseur_syntaxique(list_elements: list) -> bool:
                 print(f"symbol actuel : {symbol}")
                 if next_symbol in ["G", "D", "fin", "P", "I"]:
                     print(f"{symbol} rencontre {next_symbol}")
-                elif next_symbol == "boucle":
+                elif next_symbol in ["boucle", "si(1)", "si(0)"]:
                     print(f"{symbol} rencontre {next_symbol}")
                     K += 1
+                    print(f"DEBUG: K incremented to {K}")
                 elif next_symbol == "}":
                     print(f"{symbol} rencontre {next_symbol}")
                     K -= 1
+                    print(f"DEBUG: K decremented to {K}")
                 elif symbol.startswith("%"):
-                    pass
+                    print(f"Commentaire ignoré après {symbol}: {next_symbol}")
+                    continue
                 else:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
@@ -116,13 +132,16 @@ def analyseur_syntaxique(list_elements: list) -> bool:
                 if next_symbol in ["G", "D", "0", "1", "fin", "P", "I"]:
                     print(f"{symbol} rencontre {next_symbol}")
                 elif next_symbol.startswith("%"):
-                    pass
-                elif next_symbol == "boucle":
+                    print(f"Commentaire ignoré après {symbol}: {next_symbol}")
+                    continue
+                elif next_symbol in ["boucle", "si(1)", "si(0)"]:
                     print(f"{symbol} rencontre {next_symbol}")
                     K += 1
+                    print(f"DEBUG: K incremented to {K}")
                 elif next_symbol == "}":
                     print(f"{symbol} rencontre {next_symbol}")
                     K -= 1
+                    print(f"DEBUG: K decremented to {K}")
                 else:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
@@ -134,10 +153,12 @@ def analyseur_syntaxique(list_elements: list) -> bool:
                 if next_symbol == "}":
                     print(f"{symbol} rencontre {next_symbol}")
                     K -= 1
+                    print(f"DEBUG: K decremented to {K}")
                 elif next_symbol in ["P", "I"]:
                     print(f"{symbol} rencontre {next_symbol}")
                 elif next_symbol.startswith("%"):
-                    pass
+                    print(f"Commentaire ignoré après {symbol}: {next_symbol}")
+                    continue
                 else:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
@@ -151,16 +172,16 @@ def analyseur_syntaxique(list_elements: list) -> bool:
                 if next_symbol in ["G", "D", "0", "1", "I", "P", "#"]:
                     print(f"{symbol} rencontre {next_symbol}")
                 elif next_symbol.startswith("%"):
-                    pass
-                elif next_symbol in ["si(1)", "si(0)"]:
+                    print(f"Commentaire ignoré après {symbol}: {next_symbol}")
+                    continue
+                elif next_symbol in ["si(1)", "si(0)", "boucle"]:
                     print(f"{symbol} rencontre {next_symbol}")
                     K += 1
-                elif next_symbol == "boucle":
-                    print(f"{symbol} rencontre {next_symbol}")
-                    K += 1
+                    print(f"DEBUG: K incremented to {K}")
                 elif next_symbol == "}":
                     print(f"{symbol} rencontre {next_symbol}")
                     K -= 1
+                    print(f"DEBUG: K decremented to {K}")
                 else:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
@@ -171,11 +192,13 @@ def analyseur_syntaxique(list_elements: list) -> bool:
                 print(f"symbole actuel {symbol}, Boucle commence")
                 if next_symbol in ["G", "D", "0", "1", "P", "I"]:
                     print(f"{symbol} rencontre {next_symbol}")
-                elif next_symbol in ["si(1)", "si(0)"]:
+                elif next_symbol in ["si(1)", "si(0)", "boucle"]:
                     print(f"{symbol} rencontre {next_symbol}")
                     K += 1
+                    print(f"DEBUG: K incremented to {K}")
                 elif next_symbol.startswith("%"):
-                    pass
+                    print(f"Commentaire ignoré après {symbol}: {next_symbol}")
+                    continue
                 else:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
@@ -192,9 +215,14 @@ def analyseur_syntaxique(list_elements: list) -> bool:
     else:
         print(f"Syntaxe invalide, l'état 0 ne prend pas {symbol}")
 
+    if K < 0:
+        print(f"Erreur : Trop de fermetures rencontrées à symbol = {symbol}")
+        return False
+
     # Vérifie si toutes les boucles/conditions sont bien fermées
     if K != 0:
         print("Erreur : Boucle ou Condition non fermée")
+        print(f"Erreur : Il reste {K} boucle(s) ou condition(s) non fermée(s).")
         return False
     else:
         print("Les boucles et les conditions sont bien fermées : Syntaxe Valide")
@@ -206,8 +234,10 @@ def clean_condition(condition):
     return condition.replace(" ", "")
 
 
-def ajouter_instruction(current_block, type_, instruction, suivant=None, contenu=None):
-    entry = {"type": type_, "instruction": instruction}
+def ajouter_instruction(
+    current_block, type_, instruction, numero_noeud, suivant=None, contenu=None
+):
+    entry = {"type": type_, "instruction": instruction, "numero_noeud": numero_noeud}
     if suivant:
         entry["suivant"] = suivant
     if contenu is not None:
@@ -217,83 +247,93 @@ def ajouter_instruction(current_block, type_, instruction, suivant=None, contenu
 
 def json_file(list_elements: list, output_file: str) -> None:
     """
-    Transforme la structure syntaxique d'un programme en JSON.
+    Transforme la structure syntaxique d'un programme en JSON avec numérotation des nœuds.
 
-    Explication : 
-
-    Paramètres :
+    Parameters:
     - list_elements : Liste de symboles représentant un programme de machine de Turing.
+    - output_file : Chemin du fichier de sortie JSON.
 
-    Retourne :
+    Returns:
     - None
     """
-    # Liste des symboles qui ne sont pas valides à l'état initial (q0)
-    not_q0_symbols = ["fin", "}"]
-    structure_syntaxique = []  # Structure de données pour stocker les instructions
+    # Structure principale pour le JSON
+    structure_syntaxique = []
+    context_stack = [structure_syntaxique]  # Pile des contextes
+    current_block = context_stack[-1]  # Bloc courant
+    numero_noeud = 0  # Compteur de nœuds
 
-    # Si la liste est vide, la syntaxe est invalide
-    if not list_elements:
-        return False
+    for i, symbol in enumerate(list_elements):
+        # Standardiser les conditions et récupérer le symbole suivant
+        next_symbol = get_next_token(i, list_elements)
 
-    # Récupération du premier symbole pour vérifier la validité initiale
-    symbol0 = list_elements[0]
-    context_stack = [
-        structure_syntaxique
-    ]  # Pile de contextes, initialisée avec la structure principale
-    current_block = context_stack[-1]
+        if symbol in ["I", "P", "0", "1", "G", "D", "fin", "#"]:
+            # Ajouter une instruction simple
+            ajouter_instruction(
+                current_block,
+                "instruction",
+                symbol,
+                suivant=next_symbol,
+                numero_noeud=numero_noeud,
+            )
+            numero_noeud += 1
 
-    if symbol0 not in not_q0_symbols:
+        elif symbol in ["si(0)", "si(1)"]:
+            # Commencer un nouveau bloc conditionnel
+            condition_block = []
+            ajouter_instruction(
+                current_block,
+                "condition",
+                symbol,
+                suivant=next_symbol,
+                contenu=condition_block,
+                numero_noeud=numero_noeud,
+            )
+            numero_noeud += 1
+            context_stack.append(condition_block)
+            current_block = context_stack[-1]
 
-        # Parcours de tous les symboles du programme
-        for i, symbol in enumerate(list_elements):
-            # Standardiser les conditions
-            symbol = clean_condition(symbol)
+        elif symbol == "boucle":
+            # Commencer un nouveau bloc de boucle
+            boucle_block = []
+            ajouter_instruction(
+                current_block,
+                "boucle",
+                symbol,
+                suivant=next_symbol,
+                contenu=boucle_block,
+                numero_noeud=numero_noeud,
+            )
+            numero_noeud += 1
+            context_stack.append(boucle_block)
+            current_block = context_stack[-1]
 
-            # Récupère le symbole suivant pour traiter les enchaînements
-            next_symbol = get_next_token(i, list_elements)
-            next_symbol = clean_condition(next_symbol)
+        elif symbol == "}":
+            # Ajouter une fermeture de bloc
+            ajouter_instruction(
+                current_block,
+                "fermeture",
+                symbol,
+                suivant=next_symbol,
+                numero_noeud=numero_noeud,
+            )
+            numero_noeud += 1
+            if context_stack:  # Vérifie qu'il reste des contextes à sortir
+                context_stack.pop()
+                if context_stack:
+                    current_block = context_stack[-1]
 
-            # Traite les symboles d'instruction
-            if symbol in ["I", "P", "0", "1", "G", "D", "fin", "#"]:
-                ajouter_instruction("instruction", symbol, suivant=next_symbol)
+    # Vérifie si tous les contextes ont été correctement fermés
+    if len(context_stack) > 1:
+        print("Erreur : Certains blocs n'ont pas été fermés correctement.")
+        return
 
-            # Traitement des conditions (si(0), si(1))
-            elif symbol in ["si(0)", "si(1)"]:
-                condition_block = []
-                ajouter_instruction(
-                    "condition", symbol, suivant=next_symbol, contenu=condition_block
-                )
-                context_stack.append(
-                    condition_block
-                )  # Empile le nouveau bloc de condition
-                current_block = context_stack[-1]  # Change le contexte
-
-            # Traitement des boucles
-            elif symbol == "boucle":
-                boucle_block = []
-                ajouter_instruction(
-                    "boucle", symbol, suivant=next_symbol, contenu=boucle_block
-                )
-                context_stack.append(boucle_block)  # Empile le nouveau bloc de boucle
-                current_block = context_stack[-1]  # Change le contexte
-
-            # Traitement des fermetures
-            elif symbol == "}":
-                ajouter_instruction("fermeture", symbol, suivant=next_symbol)
-                if context_stack:  # Vérifie qu'il reste des contextes à sortir
-                    context_stack.pop()  # Sort du bloc actuel et revient au bloc parent
-                    if context_stack:
-                        current_block = context_stack[
-                            -1
-                        ]  # Remonte au contexte précédent
-
-    else:
-        print(f"Syntaxe invalide, l'état 0 ne prend pas {symbol}")
-        return False
-
-    # Enregistre la structure syntaxique au format JSON
-    with open(output_file, "w", encoding="utf-8") as json_file:
-        json.dump(structure_syntaxique, json_file, ensure_ascii=False, indent=4)
+    # Écriture dans le fichier JSON
+    try:
+        with open(output_file, "w", encoding="utf-8") as json_file:
+            json.dump(structure_syntaxique, json_file, ensure_ascii=False, indent=4)
+        print(f"Fichier JSON généré avec succès : {output_file}")
+    except Exception as e:
+        print(f"Erreur lors de l'écriture du fichier JSON : {e}")
 
 
 def main():
@@ -302,6 +342,8 @@ def main():
     args = parser.parse_args()
     input_file = args.input_file_path
     list_elements = input_tokenizer(input_file)
+    json_file(list_elements, "structure_syntaxique.json")
+
     if analyseur_syntaxique(list_elements):
         json_file(list_elements, "structure_syntaxique.json")
     return None
