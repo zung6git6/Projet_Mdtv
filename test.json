@@ -1,0 +1,191 @@
+[
+    {
+        "type": "instruction",
+        "instruction": "I",
+        "numero_noeud": 0,
+        "suivant": "si(0)"
+    },
+    {
+        "type": "condition",
+        "instruction": "si(0)",
+        "numero_noeud": 1,
+        "suivant": "I",
+        "contenu": [
+            {
+                "type": "instruction",
+                "instruction": "I",
+                "numero_noeud": 1,
+                "suivant": "}"
+            },
+            {
+                "type": "fermeture",
+                "instruction": "}",
+                "numero_noeud": 1,
+                "suivant": "si(1)"
+            }
+        ]
+    },
+    {
+        "type": "condition",
+        "instruction": "si(1)",
+        "numero_noeud": 2,
+        "suivant": "D",
+        "contenu": [
+            {
+                "type": "instruction",
+                "instruction": "D",
+                "numero_noeud": 2,
+                "suivant": "I"
+            },
+            {
+                "type": "instruction",
+                "instruction": "I",
+                "numero_noeud": 2,
+                "suivant": "boucle"
+            },
+            {
+                "type": "boucle",
+                "instruction": "boucle",
+                "numero_noeud": 3,
+                "suivant": "si(0)",
+                "contenu": [
+                    {
+                        "type": "condition",
+                        "instruction": "si(0)",
+                        "numero_noeud": 4,
+                        "suivant": "fin",
+                        "contenu": [
+                            {
+                                "type": "instruction",
+                                "instruction": "fin",
+                                "numero_noeud": 4,
+                                "suivant": "}"
+                            },
+                            {
+                                "type": "fermeture",
+                                "instruction": "}",
+                                "numero_noeud": 4,
+                                "suivant": "si(1)"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "condition",
+                        "instruction": "si(1)",
+                        "numero_noeud": 5,
+                        "suivant": "0",
+                        "contenu": [
+                            {
+                                "type": "instruction",
+                                "instruction": "0",
+                                "numero_noeud": 5,
+                                "suivant": "I"
+                            },
+                            {
+                                "type": "instruction",
+                                "instruction": "I",
+                                "numero_noeud": 5,
+                                "suivant": "D"
+                            },
+                            {
+                                "type": "instruction",
+                                "instruction": "D",
+                                "numero_noeud": 5,
+                                "suivant": "I"
+                            },
+                            {
+                                "type": "instruction",
+                                "instruction": "I",
+                                "numero_noeud": 5,
+                                "suivant": "}"
+                            },
+                            {
+                                "type": "fermeture",
+                                "instruction": "}",
+                                "numero_noeud": 5,
+                                "suivant": "}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "fermeture",
+                        "instruction": "}",
+                        "numero_noeud": 5,
+                        "suivant": "}"
+                    }
+                ]
+            },
+            {
+                "type": "fermeture",
+                "instruction": "}",
+                "numero_noeud": 5,
+                "suivant": "boucle"
+            }
+        ]
+    },
+    {
+        "type": "boucle",
+        "instruction": "boucle",
+        "numero_noeud": 6,
+        "suivant": "si(0)",
+        "contenu": [
+            {
+                "type": "condition",
+                "instruction": "si(0)",
+                "numero_noeud": 7,
+                "suivant": "G",
+                "contenu": [
+                    {
+                        "type": "instruction",
+                        "instruction": "G",
+                        "numero_noeud": 7,
+                        "suivant": "}"
+                    },
+                    {
+                        "type": "fermeture",
+                        "instruction": "}",
+                        "numero_noeud": 7,
+                        "suivant": "si(1)"
+                    }
+                ]
+            },
+            {
+                "type": "condition",
+                "instruction": "si(1)",
+                "numero_noeud": 8,
+                "suivant": "fin",
+                "contenu": [
+                    {
+                        "type": "instruction",
+                        "instruction": "fin",
+                        "numero_noeud": 8,
+                        "suivant": "}"
+                    },
+                    {
+                        "type": "fermeture",
+                        "instruction": "}",
+                        "numero_noeud": 8,
+                        "suivant": "}"
+                    }
+                ]
+            },
+            {
+                "type": "fermeture",
+                "instruction": "}",
+                "numero_noeud": 8,
+                "suivant": "I"
+            }
+        ]
+    },
+    {
+        "type": "instruction",
+        "instruction": "I",
+        "numero_noeud": 8,
+        "suivant": "#"
+    },
+    {
+        "type": "instruction",
+        "instruction": "#",
+        "numero_noeud": 8
+    }
+]
