@@ -21,7 +21,20 @@ def analyseur_syntaxique(list_elements: list) -> bool:
     """
     # Liste des symboles non valides à l'état initial (q0)
     not_q0_symbols = ["fin", "}"]
-    valid_symbols = ["I", "P", "0", "1", "G", "D", "fin", "boucle", "si(0)", "si(1)", "}", "#"] 
+    valid_symbols = [
+        "I",
+        "P",
+        "0",
+        "1",
+        "G",
+        "D",
+        "fin",
+        "boucle",
+        "si(0)",
+        "si(1)",
+        "}",
+        "#",
+    ]
     K = 0  # Compteur pour suivre l'ouverture et la fermeture des boucles/conditions
 
     # Si la liste est vide, la syntaxe est invalide
@@ -52,7 +65,19 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
             # Traite les symboles d'instruction d'affichage de la bande ('I') ; pause et affichage de la bande ('P')
             if symbol in ["I", "P"]:
-                if next_symbol and next_symbol not in ["0", "1", "G", "D", "fin", "P", "#", "si(1)", "si(0)", "boucle", "}"]:
+                if next_symbol and next_symbol not in [
+                    "0",
+                    "1",
+                    "G",
+                    "D",
+                    "fin",
+                    "P",
+                    "#",
+                    "si(1)",
+                    "si(0)",
+                    "boucle",
+                    "}",
+                ]:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
                 elif next_symbol in ["si(1)", "si(0)", "boucle"]:
@@ -60,7 +85,16 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
             # Traitement des conditions (si(0), si(1))
             elif symbol in ["si(0)", "si(1)"]:
-                if next_symbol and next_symbol not in ["G", "D", "0", "1", "fin", "P", "I", "boucle"]:
+                if next_symbol and next_symbol not in [
+                    "G",
+                    "D",
+                    "0",
+                    "1",
+                    "fin",
+                    "P",
+                    "I",
+                    "boucle",
+                ]:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
                 if next_symbol == "boucle":
@@ -68,7 +102,17 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
             # Traitement des symboles d'écrire 0 et d'écrire 1
             elif symbol in ["0", "1"]:
-                if next_symbol and next_symbol not in ["G", "D", "fin", "P", "I", "boucle", "si(1)", "si(0)", "}"]:
+                if next_symbol and next_symbol not in [
+                    "G",
+                    "D",
+                    "fin",
+                    "P",
+                    "I",
+                    "boucle",
+                    "si(1)",
+                    "si(0)",
+                    "}",
+                ]:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
                 if next_symbol in ["boucle", "si(1)", "si(0)"]:
@@ -78,7 +122,19 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
             # Traitement des mouvements de tête G (gauche) et D (droite)
             elif symbol in ["G", "D"]:
-                if next_symbol and next_symbol not in ["G", "D", "0", "1", "fin", "P", "I", "boucle", "si(1)", "si(0)", "}"]:
+                if next_symbol and next_symbol not in [
+                    "G",
+                    "D",
+                    "0",
+                    "1",
+                    "fin",
+                    "P",
+                    "I",
+                    "boucle",
+                    "si(1)",
+                    "si(0)",
+                    "}",
+                ]:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
                 if next_symbol in ["boucle", "si(1)", "si(0)"]:
@@ -96,7 +152,19 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
             # Traitement des accolades fermantes (})
             elif symbol == "}":
-                if next_symbol and next_symbol not in ["G", "D", "0", "1", "I", "P", "#", "si(1)", "si(0)", "boucle", "}"]:
+                if next_symbol and next_symbol not in [
+                    "G",
+                    "D",
+                    "0",
+                    "1",
+                    "I",
+                    "P",
+                    "#",
+                    "si(1)",
+                    "si(0)",
+                    "boucle",
+                    "}",
+                ]:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
                 if next_symbol in ["si(1)", "si(0)", "boucle"]:
@@ -106,7 +174,17 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
             # Traitement des boucles
             elif symbol == "boucle":
-                if next_symbol and next_symbol not in ["G", "D", "0", "1", "P", "I", "si(1)", "si(0)", "boucle"]:
+                if next_symbol and next_symbol not in [
+                    "G",
+                    "D",
+                    "0",
+                    "1",
+                    "P",
+                    "I",
+                    "si(1)",
+                    "si(0)",
+                    "boucle",
+                ]:
                     print(f"Erreur de syntaxe : {symbol} suivi de {next_symbol}")
                     return False
                 if next_symbol in ["si(1)", "si(0)", "boucle"]:
@@ -132,6 +210,7 @@ def analyseur_syntaxique(list_elements: list) -> bool:
     print("Analyse syntaxique réussie : la syntaxe est valide")
     return True
 
+
 def json_file(list_elements: list, output_file: str) -> None:
     """
     Transforme la structure syntaxique d'un programme en JSON avec numérotation des nœuds.
@@ -151,11 +230,17 @@ def json_file(list_elements: list, output_file: str) -> None:
             next_symbol = get_next_token(i, list_elements)
 
         entry = {
-            "type": "instruction" if symbol not in ["si(0)", "si(1)", "boucle", "}"] else 
-                   ("condition" if symbol in ["si(0)", "si(1)"] else
-                    ("boucle" if symbol == "boucle" else "fermeture")),
+            "type": (
+                "instruction"
+                if symbol not in ["si(0)", "si(1)", "boucle", "}", "#"]
+                else (
+                    "condition"
+                    if symbol in ["si(0)", "si(1)"]
+                    else ("boucle" if symbol == "boucle" else "fermeture")
+                )
+            ),
             "instruction": symbol,
-            "numero_noeud": numero_noeud
+            "numero_noeud": numero_noeud,
         }
 
         if next_symbol:
@@ -183,11 +268,14 @@ def json_file(list_elements: list, output_file: str) -> None:
     except Exception as e:
         print(f"Erreur lors de l'écriture du fichier JSON : {e}")
 
+
 def main():
-    parser = argparse.ArgumentParser(description="Analyseur syntaxique pour machine de Turing")
+    parser = argparse.ArgumentParser(
+        description="Analyseur syntaxique pour machine de Turing"
+    )
     parser.add_argument("input_file_path", help="Fichier d'entrée à analyser")
     args = parser.parse_args()
-    
+
     list_elements = input_tokenizer(args.input_file_path)
     if list_elements is None:
         print("Erreur lors de la tokenization")
@@ -195,6 +283,7 @@ def main():
 
     if analyseur_syntaxique(list_elements):
         json_file(list_elements, "structure_syntaxique.json")
+
 
 if __name__ == "__main__":
     main()
