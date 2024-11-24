@@ -97,5 +97,4 @@ def input_tokenizer(input_file: str) -> list[str]:
             if not detected and token not in ["(1)", "(0)"]:
                 print(f"Élément inattendu : {token}, aborting...")
                 return None
-
     return list_elements

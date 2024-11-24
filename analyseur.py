@@ -82,6 +82,8 @@ def analyseur_syntaxique(list_elements: list) -> bool:
                     return False
                 elif next_symbol in ["si(1)", "si(0)", "boucle"]:
                     K += 1
+                elif next_symbol == "}":
+                    K -= 1
 
             # Traitement des conditions (si(0), si(1))
             elif symbol in ["si(0)", "si(1)"]:
@@ -220,6 +222,11 @@ def json_file(list_elements: list, output_file: str) -> None:
     current_block = structure_syntaxique
     numero_noeud = 0
 
+    # Un nouveau K, qui est activé lorsqu'il rencontre une boucle
+    # Si boucle, K+=1 ; Si K > 0 et si condition, K+=1 ; Si K == 0 et si condition, K ne change pas
+    K = 0
+    # ID_boucle pour enregistrer l'ID de la boucle à renvoyer
+    ID_boucle = 0
     for i, symbol in enumerate(list_elements):
         if symbol.startswith("%"):
             continue
@@ -247,20 +254,39 @@ def json_file(list_elements: list, output_file: str) -> None:
             entry["suivant"] = next_symbol
 
         if symbol in ["si(0)", "si(1)", "boucle"]:
+
+            # Si boucle, K est acité, ID de la boucle est également enregistré
+            if symbol == "boucle":
+                K += 1
+                ID_boucle = numero_noeud
+            # Si K n'est pas zéro (active), K += 1
+            elif K != 0:
+                K += 1
+
             nouveau_bloc = []
             entry["contenu"] = nouveau_bloc
             current_block.append(entry)
             context_stack.append(current_block)
             current_block = nouveau_bloc
         elif symbol == "}":
+            # Trouver l'accolade fermante non après 'fin'
+            if K > 0 and list_elements[i-1] != "fin":
+                entry["suivant"] = f"Début de la boucle n°  {ID_boucle}"
+            # Trouver l'accolade fermante après 'fin'
+            elif K > 0 and list_elements[i-1] == "fin":
+                entry["suivant"] = f"Fin de la boucle n°  {ID_boucle}"
+            # Si K est activé et on rencontre une accolade fermante, on décrémente K
+            if K > 0:
+                K -= 1
             current_block.append(entry)
             if len(context_stack) > 0:
                 current_block = context_stack.pop()
         else:
             current_block.append(entry)
-
+        
         numero_noeud += 1
 
+    
     try:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(structure_syntaxique, f, ensure_ascii=False, indent=4)
