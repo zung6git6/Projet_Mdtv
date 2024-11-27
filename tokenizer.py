@@ -43,6 +43,7 @@ def input_tokenizer(input_file: str) -> list[str]:
     # Dictionnaire associant les symboles du langage aux regex correspondantes
     symbol2re = {
         "I": r"^[\s\t\n]*I[\s\t\n]*",
+        "P": r"^[\s\t\n]*P[\s\t\n]*",
         "si": r"^[\s\t\n]*si[\s\t\n]*",
         "%": r"^%.*",  # Commentaire de la ligne (commençant par %)
         "}": r"^[\s\t\n]*}[\s\t\n]*",

@@ -214,85 +214,62 @@ def analyseur_syntaxique(list_elements: list) -> bool:
 
 
 def json_file(list_elements: list, output_file: str) -> None:
-    """
-    Transforme la structure syntaxique d'un programme en JSON avec numérotation des nœuds.
-    """
-    structure_syntaxique = []
-    context_stack = [structure_syntaxique]
-    current_block = structure_syntaxique
-    numero_noeud = 0
+   nodes = []
+   node_count = 0
+   boucle_stack = []
+   condition_stack = []
 
-    # Un nouveau K, qui est activé lorsqu'il rencontre une boucle
-    # Si boucle, K+=1 ; Si K > 0 et si condition, K+=1 ; Si K == 0 et si condition, K ne change pas
-    K = 0
-    # ID_boucle pour enregistrer l'ID de la boucle à renvoyer
-    ID_boucle = 0
-    for i, symbol in enumerate(list_elements):
-        if symbol.startswith("%"):
-            continue
+   for i, symbol in enumerate(list_elements):
+       if symbol.startswith("%"):
+           continue
 
-        next_symbol = get_next_token(i, list_elements)
-        while next_symbol and next_symbol.startswith("%"):
-            i += 1
-            next_symbol = get_next_token(i, list_elements)
+       next_symbol = get_next_token(i, list_elements)
+       while next_symbol and next_symbol.startswith("%"):
+           next_symbol = get_next_token(i + 1, list_elements)
 
-        entry = {
-            "type": (
-                "instruction"
-                if symbol not in ["si(0)", "si(1)", "boucle", "}", "#"]
-                else (
-                    "condition"
-                    if symbol in ["si(0)", "si(1)"]
-                    else ("boucle" if symbol == "boucle" else "fermeture")
-                )
-            ),
-            "instruction": symbol,
-            "numero_noeud": numero_noeud,
-        }
+       node = {
+           "type": ("instruction" if symbol not in ["si(0)", "si(1)", "boucle", "}", "#"] 
+                   else ("condition" if symbol in ["si(0)", "si(1)"]
+                   else ("boucle" if symbol == "boucle" else "fermeture"))),
+           "instruction": symbol,
+           "numero_noeud": node_count,
+           "suivant": []
+       }
 
-        if next_symbol:
-            entry["suivant"] = next_symbol
+       if symbol == "boucle":
+           boucle_stack.append(node_count)
+           node["suivant"].append([node_count + 1, "start loop"])
+           
+       elif symbol in ["si(0)", "si(1)"]:
+           condition_stack.append(node_count)
+           node["suivant"].append([node_count + 1, "true"])
+           if next_symbol:
+               node["suivant"].append([node_count + 2, "false"])
+           
+       elif symbol == "fin":
+           if boucle_stack:
+               target = boucle_stack[-1]
+               node["suivant"].append([target + 1, "break"])
+           elif condition_stack:
+               target = condition_stack[-1]
+               node["suivant"].append([target + 1, "break"])
+               
+       elif symbol == "}":
+           if boucle_stack:
+               node["suivant"].append([boucle_stack.pop(), "continue"])
+           elif condition_stack:
+               condition_stack.pop()
+               if next_symbol:
+                   node["suivant"].append([node_count + 1, ""])
+                   
+       elif symbol != "#" and next_symbol:
+           node["suivant"].append([node_count + 1, ""])
 
-        if symbol in ["si(0)", "si(1)", "boucle"]:
+       nodes.append(node)
+       node_count += 1
 
-            # Si boucle, K est acité, ID de la boucle est également enregistré
-            if symbol == "boucle":
-                K += 1
-                ID_boucle = numero_noeud
-            # Si K n'est pas zéro (active), K += 1
-            elif K != 0:
-                K += 1
-
-            nouveau_bloc = []
-            entry["contenu"] = nouveau_bloc
-            current_block.append(entry)
-            context_stack.append(current_block)
-            current_block = nouveau_bloc
-        elif symbol == "}":
-            # Trouver l'accolade fermante non après 'fin'
-            if K > 0 and list_elements[i-1] != "fin":
-                entry["suivant"] = f"Début de la boucle n°  {ID_boucle}"
-            # Trouver l'accolade fermante après 'fin'
-            elif K > 0 and list_elements[i-1] == "fin":
-                entry["suivant"] = f"Fin de la boucle n°  {ID_boucle}"
-            # Si K est activé et on rencontre une accolade fermante, on décrémente K
-            if K > 0:
-                K -= 1
-            current_block.append(entry)
-            if len(context_stack) > 0:
-                current_block = context_stack.pop()
-        else:
-            current_block.append(entry)
-        
-        numero_noeud += 1
-
-    
-    try:
-        with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(structure_syntaxique, f, ensure_ascii=False, indent=4)
-        print(f"Fichier JSON généré avec succès : {output_file}")
-    except Exception as e:
-        print(f"Erreur lors de l'écriture du fichier JSON : {e}")
+   with open(output_file, "w", encoding="utf-8") as f:
+       json.dump({"nodes": nodes}, f, ensure_ascii=False, indent=4)
 
 
 def main():
