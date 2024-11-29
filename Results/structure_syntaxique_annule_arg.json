@@ -1,0 +1,342 @@
+{
+    "nodes": [
+        {
+            "type": "instruction",
+            "instruction": "I",
+            "numero_noeud": 0,
+            "suivant": [
+                [
+                    1,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(0)",
+            "numero_noeud": 1,
+            "suivant": [
+                [
+                    2,
+                    "true"
+                ],
+                [
+                    3,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "I",
+            "numero_noeud": 2,
+            "suivant": [
+                [
+                    3,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 3,
+            "suivant": [
+                [
+                    4,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(1)",
+            "numero_noeud": 4,
+            "suivant": [
+                [
+                    5,
+                    "true"
+                ],
+                [
+                    6,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
+            "numero_noeud": 5,
+            "suivant": [
+                [
+                    6,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "I",
+            "numero_noeud": 6,
+            "suivant": [
+                [
+                    7,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 7,
+            "suivant": [
+                [
+                    8,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(0)",
+            "numero_noeud": 8,
+            "suivant": [
+                [
+                    9,
+                    "true"
+                ],
+                [
+                    10,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "fin",
+            "numero_noeud": 9,
+            "suivant": [
+                [
+                    8,
+                    "break"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 10,
+            "suivant": [
+                [
+                    7,
+                    "continue"
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(1)",
+            "numero_noeud": 11,
+            "suivant": [
+                [
+                    12,
+                    "true"
+                ],
+                [
+                    13,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "0",
+            "numero_noeud": 12,
+            "suivant": [
+                [
+                    13,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "I",
+            "numero_noeud": 13,
+            "suivant": [
+                [
+                    14,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
+            "numero_noeud": 14,
+            "suivant": [
+                [
+                    15,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "I",
+            "numero_noeud": 15,
+            "suivant": [
+                [
+                    16,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 16,
+            "suivant": [
+                [
+                    17,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 17,
+            "suivant": [
+                [
+                    18,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 18,
+            "suivant": [
+                [
+                    19,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 19,
+            "suivant": [
+                [
+                    20,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(0)",
+            "numero_noeud": 20,
+            "suivant": [
+                [
+                    21,
+                    "true"
+                ],
+                [
+                    22,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "G",
+            "numero_noeud": 21,
+            "suivant": [
+                [
+                    22,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 22,
+            "suivant": [
+                [
+                    19,
+                    "continue"
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(1)",
+            "numero_noeud": 23,
+            "suivant": [
+                [
+                    24,
+                    "true"
+                ],
+                [
+                    25,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "fin",
+            "numero_noeud": 24,
+            "suivant": [
+                [
+                    24,
+                    "break"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 25,
+            "suivant": [
+                [
+                    26,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 26,
+            "suivant": [
+                [
+                    27,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "I",
+            "numero_noeud": 27,
+            "suivant": [
+                [
+                    28,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "#",
+            "numero_noeud": 28,
+            "suivant": []
+        }
+    ]
+}

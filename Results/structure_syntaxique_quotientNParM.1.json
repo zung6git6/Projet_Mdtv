@@ -12,67 +12,63 @@
             ]
         },
         {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "instruction",
+            "instruction": "G",
             "numero_noeud": 1,
             "suivant": [
                 [
                     2,
-                    "start loop"
-                ]
-            ]
-        },
-        {
-            "type": "condition",
-            "instruction": "si(0)",
-            "numero_noeud": 2,
-            "suivant": [
-                [
-                    3,
-                    "true"
-                ],
-                [
-                    4,
-                    "false"
+                    ""
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "fin",
-            "numero_noeud": 3,
+            "instruction": "G",
+            "numero_noeud": 2,
             "suivant": [
                 [
-                    2,
-                    "break"
+                    3,
+                    ""
                 ]
             ]
         },
         {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 4,
+            "type": "instruction",
+            "instruction": "1",
+            "numero_noeud": 3,
             "suivant": [
                 [
-                    1,
-                    "continue"
+                    4,
+                    ""
                 ]
             ]
         },
         {
             "type": "instruction",
             "instruction": "D",
-            "numero_noeud": 5,
+            "numero_noeud": 4,
             "suivant": [
                 [
-                    6,
+                    5,
                     ""
                 ]
             ]
         },
         {
-            "type": "fermeture",
-            "instruction": "}",
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 5,
+            "suivant": [
+                [
+                    6,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
             "numero_noeud": 6,
             "suivant": [
                 [
@@ -82,38 +78,16 @@
             ]
         },
         {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "condition",
+            "instruction": "si(0)",
             "numero_noeud": 7,
             "suivant": [
                 [
                     8,
-                    "start loop"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "D",
-            "numero_noeud": 8,
-            "suivant": [
-                [
-                    9,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "condition",
-            "instruction": "si(1)",
-            "numero_noeud": 9,
-            "suivant": [
-                [
-                    10,
                     "true"
                 ],
                 [
-                    11,
+                    9,
                     "false"
                 ]
             ]
@@ -121,10 +95,10 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 10,
+            "numero_noeud": 8,
             "suivant": [
                 [
-                    8,
+                    6,
                     "break"
                 ]
             ]
@@ -132,10 +106,10 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 11,
+            "numero_noeud": 9,
             "suivant": [
                 [
-                    7,
+                    5,
                     "continue"
                 ]
             ]
@@ -143,6 +117,28 @@
         {
             "type": "fermeture",
             "instruction": "}",
+            "numero_noeud": 10,
+            "suivant": [
+                [
+                    11,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 11,
+            "suivant": [
+                [
+                    12,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
             "numero_noeud": 12,
             "suivant": [
                 [
@@ -152,38 +148,16 @@
             ]
         },
         {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "condition",
+            "instruction": "si(0)",
             "numero_noeud": 13,
             "suivant": [
                 [
                     14,
-                    "start loop"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "D",
-            "numero_noeud": 14,
-            "suivant": [
-                [
-                    15,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "condition",
-            "instruction": "si(0)",
-            "numero_noeud": 15,
-            "suivant": [
-                [
-                    16,
                     "true"
                 ],
                 [
-                    17,
+                    15,
                     "false"
                 ]
             ]
@@ -191,10 +165,10 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 16,
+            "numero_noeud": 14,
             "suivant": [
                 [
-                    14,
+                    12,
                     "break"
                 ]
             ]
@@ -202,10 +176,10 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 17,
+            "numero_noeud": 15,
             "suivant": [
                 [
-                    13,
+                    11,
                     "continue"
                 ]
             ]
@@ -213,17 +187,39 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 18,
+            "numero_noeud": 16,
             "suivant": [
                 [
-                    19,
+                    17,
                     ""
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "D",
+            "instruction": "1",
+            "numero_noeud": 17,
+            "suivant": [
+                [
+                    18,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 18,
+            "suivant": [
+                [
+                    19,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "G",
             "numero_noeud": 19,
             "suivant": [
                 [
@@ -233,41 +229,45 @@
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "1",
+            "type": "condition",
+            "instruction": "si(0)",
             "numero_noeud": 20,
             "suivant": [
                 [
                     21,
-                    ""
+                    "true"
+                ],
+                [
+                    22,
+                    "false"
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "G",
+            "instruction": "fin",
             "numero_noeud": 21,
             "suivant": [
                 [
-                    22,
-                    ""
+                    19,
+                    "break"
                 ]
             ]
         },
         {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 22,
             "suivant": [
                 [
-                    23,
-                    "start loop"
+                    18,
+                    "continue"
                 ]
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "G",
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 23,
             "suivant": [
                 [
@@ -277,50 +277,46 @@
             ]
         },
         {
-            "type": "condition",
-            "instruction": "si(0)",
+            "type": "instruction",
+            "instruction": "D",
             "numero_noeud": 24,
             "suivant": [
                 [
                     25,
-                    "true"
-                ],
-                [
-                    26,
-                    "false"
+                    ""
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "fin",
+            "instruction": "D",
             "numero_noeud": 25,
             "suivant": [
                 [
-                    23,
-                    "break"
+                    26,
+                    ""
                 ]
             ]
         },
         {
-            "type": "fermeture",
-            "instruction": "}",
+            "type": "instruction",
+            "instruction": "I",
             "numero_noeud": 26,
             "suivant": [
                 [
-                    22,
-                    "continue"
+                    27,
+                    ""
                 ]
             ]
         },
         {
-            "type": "fermeture",
-            "instruction": "}",
+            "type": "boucle",
+            "instruction": "boucle",
             "numero_noeud": 27,
             "suivant": [
                 [
                     28,
-                    ""
+                    "start loop"
                 ]
             ]
         },
@@ -337,7 +333,7 @@
         },
         {
             "type": "instruction",
-            "instruction": "G",
+            "instruction": "D",
             "numero_noeud": 29,
             "suivant": [
                 [
@@ -348,7 +344,7 @@
         },
         {
             "type": "condition",
-            "instruction": "si(1)",
+            "instruction": "si(0)",
             "numero_noeud": 30,
             "suivant": [
                 [
@@ -363,8 +359,19 @@
         },
         {
             "type": "instruction",
-            "instruction": "fin",
+            "instruction": "G",
             "numero_noeud": 31,
+            "suivant": [
+                [
+                    32,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "fin",
+            "numero_noeud": 32,
             "suivant": [
                 [
                     29,
@@ -375,7 +382,7 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 32,
+            "numero_noeud": 33,
             "suivant": [
                 [
                     28,
@@ -384,24 +391,13 @@
             ]
         },
         {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 33,
-            "suivant": [
-                [
-                    34,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "instruction",
+            "instruction": "G",
             "numero_noeud": 34,
             "suivant": [
                 [
                     35,
-                    "start loop"
+                    ""
                 ]
             ]
         },
@@ -417,27 +413,38 @@
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "G",
+            "type": "boucle",
+            "instruction": "boucle",
             "numero_noeud": 36,
             "suivant": [
                 [
                     37,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "G",
+            "numero_noeud": 37,
+            "suivant": [
+                [
+                    38,
                     ""
                 ]
             ]
         },
         {
             "type": "condition",
-            "instruction": "si(0)",
-            "numero_noeud": 37,
+            "instruction": "si(1)",
+            "numero_noeud": 38,
             "suivant": [
                 [
-                    38,
+                    39,
                     "true"
                 ],
                 [
-                    39,
+                    40,
                     "false"
                 ]
             ]
@@ -445,10 +452,10 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 38,
+            "numero_noeud": 39,
             "suivant": [
                 [
-                    35,
+                    37,
                     "break"
                 ]
             ]
@@ -456,39 +463,28 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 39,
+            "numero_noeud": 40,
             "suivant": [
                 [
-                    34,
+                    36,
+                    "continue"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 41,
+            "suivant": [
+                [
+                    27,
                     "continue"
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "D",
-            "numero_noeud": 40,
-            "suivant": [
-                [
-                    41,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "boucle",
-            "instruction": "boucle",
-            "numero_noeud": 41,
-            "suivant": [
-                [
-                    42,
-                    "start loop"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "D",
+            "instruction": "G",
             "numero_noeud": 42,
             "suivant": [
                 [
@@ -498,16 +494,38 @@
             ]
         },
         {
-            "type": "condition",
-            "instruction": "si(1)",
+            "type": "boucle",
+            "instruction": "boucle",
             "numero_noeud": 43,
             "suivant": [
                 [
                     44,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "G",
+            "numero_noeud": 44,
+            "suivant": [
+                [
+                    45,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(0)",
+            "numero_noeud": 45,
+            "suivant": [
+                [
+                    46,
                     "true"
                 ],
                 [
-                    45,
+                    47,
                     "false"
                 ]
             ]
@@ -515,10 +533,10 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 44,
+            "numero_noeud": 46,
             "suivant": [
                 [
-                    42,
+                    44,
                     "break"
                 ]
             ]
@@ -526,10 +544,10 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 45,
+            "numero_noeud": 47,
             "suivant": [
                 [
-                    41,
+                    43,
                     "continue"
                 ]
             ]
@@ -537,28 +555,6 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 46,
-            "suivant": [
-                [
-                    47,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "boucle",
-            "instruction": "boucle",
-            "numero_noeud": 47,
-            "suivant": [
-                [
-                    48,
-                    "start loop"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "D",
             "numero_noeud": 48,
             "suivant": [
                 [
@@ -568,45 +564,45 @@
             ]
         },
         {
-            "type": "condition",
-            "instruction": "si(0)",
+            "type": "instruction",
+            "instruction": "D",
             "numero_noeud": 49,
             "suivant": [
                 [
                     50,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
+            "numero_noeud": 50,
+            "suivant": [
+                [
+                    51,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(0)",
+            "numero_noeud": 51,
+            "suivant": [
+                [
+                    52,
                     "true"
                 ],
                 [
-                    51,
+                    53,
                     "false"
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "fin",
-            "numero_noeud": 50,
-            "suivant": [
-                [
-                    48,
-                    "break"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 51,
-            "suivant": [
-                [
-                    47,
-                    "continue"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
+            "instruction": "G",
             "numero_noeud": 52,
             "suivant": [
                 [
@@ -617,7 +613,7 @@
         },
         {
             "type": "instruction",
-            "instruction": "G",
+            "instruction": "0",
             "numero_noeud": 53,
             "suivant": [
                 [
@@ -627,19 +623,19 @@
             ]
         },
         {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "instruction",
+            "instruction": "fin",
             "numero_noeud": 54,
             "suivant": [
                 [
-                    55,
-                    "start loop"
+                    52,
+                    "break"
                 ]
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "0",
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 55,
             "suivant": [
                 [
@@ -660,49 +656,12 @@
             ]
         },
         {
-            "type": "condition",
-            "instruction": "si(0)",
+            "type": "instruction",
+            "instruction": "0",
             "numero_noeud": 57,
             "suivant": [
                 [
                     58,
-                    "true"
-                ],
-                [
-                    59,
-                    "false"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "fin",
-            "numero_noeud": 58,
-            "suivant": [
-                [
-                    55,
-                    "break"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 59,
-            "suivant": [
-                [
-                    54,
-                    "continue"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "D",
-            "numero_noeud": 60,
-            "suivant": [
-                [
-                    61,
                     ""
                 ]
             ]
@@ -710,10 +669,10 @@
         {
             "type": "boucle",
             "instruction": "boucle",
-            "numero_noeud": 61,
+            "numero_noeud": 58,
             "suivant": [
                 [
-                    62,
+                    59,
                     "start loop"
                 ]
             ]
@@ -721,10 +680,102 @@
         {
             "type": "instruction",
             "instruction": "D",
+            "numero_noeud": 59,
+            "suivant": [
+                [
+                    60,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(0)",
+            "numero_noeud": 60,
+            "suivant": [
+                [
+                    61,
+                    "true"
+                ],
+                [
+                    62,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "fin",
+            "numero_noeud": 61,
+            "suivant": [
+                [
+                    59,
+                    "break"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 62,
             "suivant": [
                 [
-                    63,
+                    58,
+                    "continue"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 63,
+            "suivant": [
+                [
+                    64,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
+            "numero_noeud": 64,
+            "suivant": [
+                [
+                    65,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
+            "numero_noeud": 65,
+            "suivant": [
+                [
+                    66,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 66,
+            "suivant": [
+                [
+                    67,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
+            "numero_noeud": 67,
+            "suivant": [
+                [
+                    68,
                     ""
                 ]
             ]
@@ -732,84 +783,14 @@
         {
             "type": "condition",
             "instruction": "si(1)",
-            "numero_noeud": 63,
-            "suivant": [
-                [
-                    64,
-                    "true"
-                ],
-                [
-                    65,
-                    "false"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "fin",
-            "numero_noeud": 64,
-            "suivant": [
-                [
-                    62,
-                    "break"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 65,
-            "suivant": [
-                [
-                    61,
-                    "continue"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 66,
-            "suivant": [
-                [
-                    67,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "boucle",
-            "instruction": "boucle",
-            "numero_noeud": 67,
-            "suivant": [
-                [
-                    68,
-                    "start loop"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "D",
             "numero_noeud": 68,
             "suivant": [
                 [
                     69,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "condition",
-            "instruction": "si(0)",
-            "numero_noeud": 69,
-            "suivant": [
-                [
-                    70,
                     "true"
                 ],
                 [
-                    71,
+                    70,
                     "false"
                 ]
             ]
@@ -817,11 +798,22 @@
         {
             "type": "instruction",
             "instruction": "fin",
+            "numero_noeud": 69,
+            "suivant": [
+                [
+                    67,
+                    "break"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 70,
             "suivant": [
                 [
-                    68,
-                    "break"
+                    66,
+                    "continue"
                 ]
             ]
         },
@@ -831,8 +823,8 @@
             "numero_noeud": 71,
             "suivant": [
                 [
-                    67,
-                    "continue"
+                    72,
+                    ""
                 ]
             ]
         },
@@ -848,30 +840,34 @@
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "1",
+            "type": "condition",
+            "instruction": "si(0)",
             "numero_noeud": 73,
             "suivant": [
                 [
                     74,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "boucle",
-            "instruction": "boucle",
-            "numero_noeud": 74,
-            "suivant": [
+                    "true"
+                ],
                 [
                     75,
-                    "start loop"
+                    "false"
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "G",
+            "instruction": "fin",
+            "numero_noeud": 74,
+            "suivant": [
+                [
+                    74,
+                    "break"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 75,
             "suivant": [
                 [
@@ -881,49 +877,12 @@
             ]
         },
         {
-            "type": "condition",
-            "instruction": "si(0)",
+            "type": "instruction",
+            "instruction": "I",
             "numero_noeud": 76,
             "suivant": [
                 [
                     77,
-                    "true"
-                ],
-                [
-                    78,
-                    "false"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "fin",
-            "numero_noeud": 77,
-            "suivant": [
-                [
-                    75,
-                    "break"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 78,
-            "suivant": [
-                [
-                    74,
-                    "continue"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 79,
-            "suivant": [
-                [
-                    80,
                     ""
                 ]
             ]
@@ -931,10 +890,10 @@
         {
             "type": "boucle",
             "instruction": "boucle",
-            "numero_noeud": 80,
+            "numero_noeud": 77,
             "suivant": [
                 [
-                    81,
+                    78,
                     "start loop"
                 ]
             ]
@@ -942,10 +901,10 @@
         {
             "type": "instruction",
             "instruction": "G",
-            "numero_noeud": 81,
+            "numero_noeud": 78,
             "suivant": [
                 [
-                    82,
+                    79,
                     ""
                 ]
             ]
@@ -953,14 +912,14 @@
         {
             "type": "condition",
             "instruction": "si(1)",
-            "numero_noeud": 82,
+            "numero_noeud": 79,
             "suivant": [
                 [
-                    83,
+                    80,
                     "true"
                 ],
                 [
-                    84,
+                    81,
                     "false"
                 ]
             ]
@@ -968,10 +927,10 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 83,
+            "numero_noeud": 80,
             "suivant": [
                 [
-                    81,
+                    78,
                     "break"
                 ]
             ]
@@ -979,21 +938,21 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 84,
+            "numero_noeud": 81,
             "suivant": [
                 [
-                    80,
+                    77,
                     "continue"
                 ]
             ]
         },
         {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 85,
+            "type": "instruction",
+            "instruction": "1",
+            "numero_noeud": 82,
             "suivant": [
                 [
-                    86,
+                    83,
                     ""
                 ]
             ]
@@ -1001,6 +960,39 @@
         {
             "type": "fermeture",
             "instruction": "}",
+            "numero_noeud": 83,
+            "suivant": [
+                [
+                    84,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "G",
+            "numero_noeud": 84,
+            "suivant": [
+                [
+                    85,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 85,
+            "suivant": [
+                [
+                    86,
+                    "start loop"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "G",
             "numero_noeud": 86,
             "suivant": [
                 [
@@ -1010,41 +1002,45 @@
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "D",
+            "type": "condition",
+            "instruction": "si(0)",
             "numero_noeud": 87,
             "suivant": [
                 [
                     88,
-                    ""
+                    "true"
+                ],
+                [
+                    89,
+                    "false"
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "1",
+            "instruction": "fin",
             "numero_noeud": 88,
             "suivant": [
                 [
-                    89,
-                    ""
+                    86,
+                    "break"
                 ]
             ]
         },
         {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 89,
             "suivant": [
                 [
-                    90,
-                    "start loop"
+                    85,
+                    "continue"
                 ]
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "D",
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 90,
             "suivant": [
                 [
@@ -1054,71 +1050,12 @@
             ]
         },
         {
-            "type": "condition",
-            "instruction": "si(1)",
+            "type": "boucle",
+            "instruction": "boucle",
             "numero_noeud": 91,
             "suivant": [
                 [
                     92,
-                    "true"
-                ],
-                [
-                    93,
-                    "false"
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "fin",
-            "numero_noeud": 92,
-            "suivant": [
-                [
-                    90,
-                    "break"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 93,
-            "suivant": [
-                [
-                    89,
-                    "continue"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
-            "numero_noeud": 94,
-            "suivant": [
-                [
-                    95,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "instruction",
-            "instruction": "G",
-            "numero_noeud": 95,
-            "suivant": [
-                [
-                    96,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "boucle",
-            "instruction": "boucle",
-            "numero_noeud": 96,
-            "suivant": [
-                [
-                    97,
                     "start loop"
                 ]
             ]
@@ -1126,10 +1063,10 @@
         {
             "type": "instruction",
             "instruction": "G",
-            "numero_noeud": 97,
+            "numero_noeud": 92,
             "suivant": [
                 [
-                    98,
+                    93,
                     ""
                 ]
             ]
@@ -1137,14 +1074,14 @@
         {
             "type": "condition",
             "instruction": "si(1)",
-            "numero_noeud": 98,
+            "numero_noeud": 93,
             "suivant": [
                 [
-                    99,
+                    94,
                     "true"
                 ],
                 [
-                    100,
+                    95,
                     "false"
                 ]
             ]
@@ -1152,10 +1089,10 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 99,
+            "numero_noeud": 94,
             "suivant": [
                 [
-                    97,
+                    92,
                     "break"
                 ]
             ]
@@ -1163,22 +1100,81 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 100,
+            "numero_noeud": 95,
             "suivant": [
                 [
-                    96,
+                    91,
                     "continue"
                 ]
             ]
         },
         {
+            "type": "fermeture",
+            "instruction": "}",
+            "numero_noeud": 96,
+            "suivant": [
+                [
+                    97,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 97,
+            "suivant": [
+                [
+                    98,
+                    "start loop"
+                ]
+            ]
+        },
+        {
             "type": "instruction",
-            "instruction": "1",
+            "instruction": "G",
+            "numero_noeud": 98,
+            "suivant": [
+                [
+                    99,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "condition",
+            "instruction": "si(0)",
+            "numero_noeud": 99,
+            "suivant": [
+                [
+                    100,
+                    "true"
+                ],
+                [
+                    101,
+                    "false"
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "fin",
+            "numero_noeud": 100,
+            "suivant": [
+                [
+                    98,
+                    "break"
+                ]
+            ]
+        },
+        {
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 101,
             "suivant": [
                 [
-                    102,
-                    ""
+                    97,
+                    "continue"
                 ]
             ]
         },
@@ -1194,38 +1190,49 @@
             ]
         },
         {
-            "type": "boucle",
-            "instruction": "boucle",
+            "type": "instruction",
+            "instruction": "1",
             "numero_noeud": 103,
             "suivant": [
                 [
                     104,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "boucle",
+            "instruction": "boucle",
+            "numero_noeud": 104,
+            "suivant": [
+                [
+                    105,
                     "start loop"
                 ]
             ]
         },
         {
             "type": "instruction",
-            "instruction": "G",
-            "numero_noeud": 104,
+            "instruction": "D",
+            "numero_noeud": 105,
             "suivant": [
                 [
-                    105,
+                    106,
                     ""
                 ]
             ]
         },
         {
             "type": "condition",
-            "instruction": "si(1)",
-            "numero_noeud": 105,
+            "instruction": "si(0)",
+            "numero_noeud": 106,
             "suivant": [
                 [
-                    106,
+                    107,
                     "true"
                 ],
                 [
-                    107,
+                    108,
                     "false"
                 ]
             ]
@@ -1233,22 +1240,11 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 106,
-            "suivant": [
-                [
-                    104,
-                    "break"
-                ]
-            ]
-        },
-        {
-            "type": "fermeture",
-            "instruction": "}",
             "numero_noeud": 107,
             "suivant": [
                 [
-                    103,
-                    "continue"
+                    105,
+                    "break"
                 ]
             ]
         },
@@ -1258,8 +1254,8 @@
             "numero_noeud": 108,
             "suivant": [
                 [
-                    109,
-                    ""
+                    104,
+                    "continue"
                 ]
             ]
         },
@@ -1357,7 +1353,7 @@
         },
         {
             "type": "instruction",
-            "instruction": "0",
+            "instruction": "D",
             "numero_noeud": 117,
             "suivant": [
                 [
@@ -1367,27 +1363,16 @@
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "D",
+            "type": "condition",
+            "instruction": "si(0)",
             "numero_noeud": 118,
             "suivant": [
                 [
                     119,
-                    ""
-                ]
-            ]
-        },
-        {
-            "type": "condition",
-            "instruction": "si(0)",
-            "numero_noeud": 119,
-            "suivant": [
-                [
-                    120,
                     "true"
                 ],
                 [
-                    121,
+                    120,
                     "false"
                 ]
             ]
@@ -1395,7 +1380,7 @@
         {
             "type": "instruction",
             "instruction": "fin",
-            "numero_noeud": 120,
+            "numero_noeud": 119,
             "suivant": [
                 [
                     117,
@@ -1406,7 +1391,7 @@
         {
             "type": "fermeture",
             "instruction": "}",
-            "numero_noeud": 121,
+            "numero_noeud": 120,
             "suivant": [
                 [
                     116,
@@ -1417,6 +1402,17 @@
         {
             "type": "fermeture",
             "instruction": "}",
+            "numero_noeud": 121,
+            "suivant": [
+                [
+                    122,
+                    ""
+                ]
+            ]
+        },
+        {
+            "type": "instruction",
+            "instruction": "D",
             "numero_noeud": 122,
             "suivant": [
                 [
@@ -1437,8 +1433,8 @@
             ]
         },
         {
-            "type": "instruction",
-            "instruction": "I",
+            "type": "fermeture",
+            "instruction": "}",
             "numero_noeud": 124,
             "suivant": [
                 [
@@ -1448,9 +1444,20 @@
             ]
         },
         {
+            "type": "instruction",
+            "instruction": "I",
+            "numero_noeud": 125,
+            "suivant": [
+                [
+                    126,
+                    ""
+                ]
+            ]
+        },
+        {
             "type": "fermeture",
             "instruction": "#",
-            "numero_noeud": 125,
+            "numero_noeud": 126,
             "suivant": []
         }
     ]
